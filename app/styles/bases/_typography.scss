@@ -1,0 +1,118 @@
+.border_box {
+    @include box_sizing(border-box);
+}
+
+@mixin title_xlarge_mixin() {
+    font-size: 50px;
+    line-height: 60px;
+}
+
+.title_xlarge {
+    @include title_xlarge_mixin();
+}
+
+@mixin title_large_mixin() {
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.title_large {
+    @include title_large_mixin();
+}
+
+@mixin title_normal_mixin() {
+    font-size: 40px;
+    line-height: 45px;
+}
+
+.title_normal {
+    @include title_normal_mixin();
+}
+
+
+@mixin title_small_mixin() {
+    font-size: 35px;
+    line-height: 40px;
+}
+
+.title_small {
+    @include title_small_mixin();
+}
+
+
+
+@mixin text_xlarge_mixin() {
+    font-size: 30px;
+    line-height: 34px;
+}
+
+.text_xlarge {
+    @include text_xlarge_mixin();
+}
+
+
+@mixin text_large_mixin() {
+    font-size: 25px;
+    line-height: 29px;
+}
+
+.text_large {
+    @include text_large_mixin();
+}
+
+
+@mixin text_normal_extend_mixin() {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.text_normal_extend {
+    @include text_normal_extend_mixin();
+}
+
+@mixin text_normal_mixin() {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.text_normal {
+    @include text_normal_mixin();
+}
+
+
+@mixin text_small_mixin() {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.text_small {
+    @include text_small_mixin();
+}
+
+@mixin text_small_extend_mixin() {
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.text_small_extend {
+    @include text_small_extend_mixin();
+}
+
+
+@mixin text_smaller_mixin() {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.text_smaller {
+    @include text_smaller_mixin();
+}
+
+@mixin text_xsmall_mixin() {
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.text_xsmall {
+    @include text_xsmall_mixin();
+}

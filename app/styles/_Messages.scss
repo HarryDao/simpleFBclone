@@ -1,0 +1,35 @@
+.messages-panel {
+    @include ts(0.5s);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+
+    &.active {
+        top: 0;
+        opacity: 1;
+    }
+
+    > .inner {
+        width: 90%;
+        margin: auto;
+        color: $white;
+        @extend .text_small;
+        padding: 7px;
+        text-align: center;
+
+        &.info {
+            background-color: $blue_opacity;
+        }
+    
+        &.error {
+            background-color: $red_light_opacity;
+        }
+    
+        &.success {
+            background-color: $aqua_dark_opacity;
+        }
+    }
+}

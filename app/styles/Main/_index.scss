@@ -1,0 +1,12 @@
+.main {
+    min-height: 700px;
+    position: relative;
+
+    > .inner {
+        width: 100%;
+        display: flex;
+
+        @import 'Friends';
+        @import 'Posts';
+    }
+}

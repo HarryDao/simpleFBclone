@@ -1,0 +1,342 @@
+> .friends {
+    width: 20%;
+    margin-top: 100px;
+    padding: 40px 5px 80px;
+    height: 100%;
+    position: relative;
+
+    > .buttons {
+        display: none;
+    }
+
+
+
+    > .inner {
+        width: 100%;
+        background-color: transparent;
+        position: relative;
+
+        > .friend-finder {
+            width: 100%;
+            background-color: $aqua_darker;
+            border-radius: 5px 5px 0 0;
+            
+            > form {
+                width: 100%;
+                position: relative;
+                margin-bottom: 0;
+    
+                > .input-group {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    > i {
+                        width: 10%;
+                        color: $white;
+                        @extend .text_small;
+                        text-align: right;  
+                    }
+
+                    > input {
+                        width: 90%;
+                        @extend .text_small;
+                        padding: 10px;
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+                        color: $white;
+                        font-weight: 400;
+                        
+                        &::placeholder {
+                            color: $grey;
+                        }
+                    }
+                }
+
+                > .suggestions {
+                    width: 100%;
+                    position: relative;
+
+                    > .list {
+                        position: absolute;
+                        z-index: 11;
+                        width: 100%;
+                        background-color: $aqua_darker_opacity;
+                        padding-left: 15px;
+
+                        > button {
+                            width: 100%;
+                            @include ts(0.1s);
+                            background-color: transparent;
+                            outline: none;
+                            border: none;
+                            @extend .text_small;
+                            padding: 5px;
+                            color: $white;
+                            outline: none;
+                            text-align: left;
+                            padding-left: 10px;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > .friend-list {
+            width: 100%;
+            border-radius: 0 0 5px 5px;
+
+            > .asks {
+                background-color: $grey_lighter;
+            }
+
+            .list {
+                padding: 5px 10px;
+
+                &:first-child {
+                    padding-top: 15px;
+                }
+
+                &.inactive {
+                    padding: 0;
+                }
+
+                > .item {
+                    width: 100%;
+                    display: flex;
+                    padding: 5px;
+                    justify-content: center;
+                    align-items: center;
+                    border-bottom: 1px solid transparent;
+
+                    > .icon {
+                        width: 10%;
+                    }
+
+                    > .name {
+                        width: 66%;
+
+                        &:hover {
+                            cursor: default;
+                        }
+                    }
+
+                    > .buttons {
+                        width: 24%;
+                        display: flex;
+                        justify-content: center;
+
+                        > button {
+                            @include ts(0.1s);
+                            @extend .text_small;
+                            width: 50%;
+                            margin: auto 1px;
+                            border-radius: 50%;
+                            outline: none;
+                            border: none;
+                            background-color: transparent;
+                            opacity: 0.3;
+
+                            &.yes {
+                                color: $aqua_dark;
+                            }
+
+                            &.no {
+                                color: $red_light;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                &.asked {
+                    > .item {
+                        @extend .text_small;
+                        color: $blue;
+
+                        &:hover {
+                            border-color: $blue;
+                        }
+                    }
+                }
+
+                &.asking {
+                    > .item {
+                        @extend .text_small;
+                        color: $grey;
+                    }
+                }
+
+                &.friends {
+                    background-color: $white;
+                    border-radius: 0 0 5px 5px;
+
+                    > .item {
+                        @include ts(0.1s);
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                        > .icon {
+                            color: $aqua_darker;
+                        }
+
+                        > .name {
+                            > button {
+                                width: 100%;
+                                background-color: transparent;
+                                border: none;
+                                padding: 10px 0;
+                                @extend .text_small;
+                                text-align: left;
+                                color: $aqua_darker;
+                                outline: none;
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        > .buttons {
+                            @include ts(0.1s);
+                            opacity: 0;
+                        }
+
+                        &:hover {
+                            border-color: $aqua_darker;
+
+                            > .buttons {
+                                opacity: 1;
+                            }
+                        }
+
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    @include tablet {
+        @include ts(0.2s);
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: $black_light_opacity;
+        margin-top: 0;
+        opacity:0;
+
+        padding: 150px 20px 80px;
+        z-index: 11;
+
+        &.show {
+            right: 0;
+            opacity: 1;
+        }
+
+        > .buttons {
+            display: flex;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            padding-right: 30px;
+            padding-left: 30px;
+            align-items: center;
+         
+            > .home {
+                @include ts(0.2s);
+                width: 80%;
+                @include text_large_mixin();
+                color: $white;
+
+                &:hover {
+                    color: $aqua;
+                    cursor: pointer;
+                }
+            }       
+    
+            > .close {
+                @include ts(0.2s);
+                width: 20%;
+                @include title_large_mixin();
+                color: $white;
+                opacity: 0.8;
+                text-align: right;
+
+                &:hover {
+                    opacity: 1;
+                    color: $aqua;
+                    cursor: pointer;
+                }
+            }
+    
+        }
+
+        > .inner {
+            position: relative;
+
+
+
+            > .friend-finder {
+                > form {
+                    > .input-group {
+                        > i {
+                            @include text_normal_mixin();
+                        }
+
+                        > input {
+                            @include text_normal_mixin();
+                        }
+                    }
+
+                    > .suggestions {
+
+                        > .list {
+                            > button {
+                                @include text_normal_mixin();
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .friend-list {
+                .list {
+                    &.asked, &.asking {
+                        > .item {
+                            @include text_normal_mixin();
+                        }
+                    }
+
+                    &.friends {
+                        > .item {
+                            > .name {
+                                > button {
+                                    @include text_normal_mixin();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

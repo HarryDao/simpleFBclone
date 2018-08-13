@@ -1,0 +1,149 @@
+> .posts {
+    width: 80%;
+    padding: 40px 20px 80px;
+    position: relative;
+
+    > .not-friend {
+        > h1 {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            @extend .title_small;
+            color: $red_light;
+
+            > .name {
+                color: $aqua;
+            }
+            
+        }
+    }
+
+    > .info {
+        width: 100%;
+        padding: 10px;
+        margin: 10px auto;
+        position: relative;
+
+        > .buttons {
+            width: 100%;
+            margin-bottom: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            > button {
+                @extend .text_xlarge;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                color: $aqua;
+                top: 15px;
+                padding: 5px;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+    
+                &.friends {
+                    display: none;
+                }
+            }
+        }
+
+        > .details {
+            width: 100%;
+            text-align: center;
+            color: $aqua;
+            @extend .text_large;
+            font-weight: 600;
+        }
+    }
+
+    > .loading {
+        width: 100%;
+        position: relative;
+    }
+
+    @import 'PostItem';
+
+    @import 'PostForm';
+
+    > .post-list {
+        width: 100%;
+        padding: 10px;
+        background-color: $black_lighter;
+        border-radius: 10px;
+
+        > .guide {
+            width: 90%;
+            margin: auto;
+            color: $white;
+
+            > h4 {
+                text-align: center;
+                @extend .title_small;
+
+                > .name {
+                    color: $aqua;
+                }
+            }
+
+            > p {
+                @extend .text_normal;
+
+                > .name {
+                    color: $aqua;
+                }
+            }
+        }
+
+        > .post-item {
+            @extend .post-item-styles;
+        }
+    }
+
+    @include tablet {
+        width: 100%;
+        padding: 30px 5px 60px;
+
+        > .info {
+            > .buttons {
+                position: absolute;
+
+                > button {
+                    &.friends {
+                        @include ts(0.2s);
+                        position: fixed;
+                        z-index: 9;
+                        top: 70px;
+                        right: 10px;
+                        display: block;
+                        @include text_xlarge_mixin();
+                        border: 1px double $grey;
+                        color: $white;
+                        border-radius: 50%;
+                        padding: 12px 10px;
+                        opacity: 0.5;
+
+                        &:hover {
+                            opacity: 1;
+                            background-color: $aqua_dark;
+                            border-color: $aqua;
+
+                            box-shadow: 0 0 10px $aqua;
+                            
+                        }
+                    }
+
+                    &.home {
+                        display: none;
+                    }
+                }
+            }
+
+            > .details {
+                margin-top: 50px;
+            }
+        }
+    }
+}

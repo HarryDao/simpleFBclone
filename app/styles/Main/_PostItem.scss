@@ -1,0 +1,216 @@
+.post-item-styles {
+    width: 100%;
+    margin: 20px auto;
+    padding: 0;
+    background-color: $white;
+    border-radius: 5px;
+    position: relative;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    > .user {
+        width: 100%;
+        color: $aqua_darker;
+        display: flex;
+        background-color: $grey_lighter;
+        border-radius: 5px 5px 0 0;
+        padding: 5px;
+        align-items: center;
+
+        > .icon {
+            width: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @extend .text_large;
+        }
+
+        > .info {
+            width: 80%;
+
+            > p {
+                margin: 5px auto;
+                
+                &.name {
+                    @extend .text_small;
+                    font-weight: 600;
+                }
+
+                &.time {
+                    @extend .text_smaller;
+                    color: $grey_dark;
+                }
+            }
+        }
+
+        > .options {
+            width: 15%;
+            padding-right: 5px;
+            position: relative;
+            text-align: right;
+
+            > .icon {
+                @extend .text_normal;
+                color: $white;
+                background-color: transparent;
+                outline: none;
+                border: none;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            > .list {
+                right: 25px;
+                position: absolute;
+                width: 100%;
+                z-index: 11;
+
+                > button {
+                    width: 100%;
+                    background-color: transparent;
+                    outline: none;
+                    border: none;
+                    @extend .text_small;
+                    @include ts(0.1s);
+                    padding: 5px;
+                    background-color: $black_light;
+                    margin-top: 0;
+                    margin-bottom: 0;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &:first-child {
+                        border-radius: 10px 0 0 0;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 0 10px 10px;
+                    }
+
+                    &.edit {
+                        color: $aqua;
+                        border-bottom: 1px solid grey;
+
+                        &:hover {
+                            color: $black_light;
+                            background-color: $aqua;
+                        }
+                    }
+
+                    &.remove {
+                        color: $red_light;
+
+                        &:hover {
+                            color: $black_light;
+                            background-color: $red_light;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        &.preview {
+            > .info {
+                > p {
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    > .edit {
+        background-color: $grey_light;
+        padding: 50px 10px 10px 10px;
+        border-radius: 0 0 5px 5px;
+        position: relative;
+
+        > .close {
+            position: absolute;
+            z-index: 11;
+            top: 5px;
+            right: 10px;
+            color: $grey;
+            @include ts(0.2s);
+            @extend .text_xlarge;
+
+            &:hover {
+                cursor: pointer;
+                color: $red_light;
+            }
+        }
+    }
+
+    > .content {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        position: relative;
+
+        > span {
+            @extend .text_normal;
+            color: $black_light;
+
+            &.user {
+                color: $aqua_darker;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.preview {
+            > span {
+                font-style: italic;
+            }
+        }
+    }
+
+
+    &.own {
+        background-color: $white;
+
+        > .user {
+            color: $aqua;
+            background-color: $aqua_darker;
+
+            > .info {
+                > p {
+                    &.time {
+                        color: $grey_light;
+                    }
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        > .user {
+            > .icon {
+                width: 15%;
+            }
+
+            > .info {
+                width: 50%;
+            }
+
+            > .options {
+                width: 35%;
+                padding-right: 0;
+
+                > .list {
+                    > button {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+footer {
+    margin-top: 50px;
+    color: $white;
+    border-top: 1px solid $aqua_darker;
+ 
+    > .info {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 50px;
+
+        > .address {
+            width: 40%;
+            > h5 {
+                @extend .text_xsmall;
+                font-weight: 300;
+
+                > i.fa {
+                    color: $aqua;
+                }
+
+            }
+        }
+
+        > .menu {
+            width: 40%;
+        }
+
+        > .social {
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+
+            > a {
+                margin: auto 20px;
+                > i {
+                    @extend .title_small;
+                    color: $aqua;
+                }
+            }
+        }
+    }
+
+    > .copyright {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        @extend .text_small;
+        color: $aqua;
+        
+    }
+
+    @include tablet {
+        > .info {
+            display: block;
+
+            > .address {
+                width: 100%;
+                text-align: center;
+
+                > h5 {
+                    @include text_small_mixin();
+                }
+            }
+
+            > .menu {
+                display: none;
+            }
+
+            > .social {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}

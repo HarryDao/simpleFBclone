@@ -1,0 +1,153 @@
+.login-form {
+    width: 100%;
+    height: 100%;
+    padding: 80px 20px 40px;
+
+    * {
+        @include ts();
+    }
+
+    > form {
+        position: relative;
+        width: 300px;
+        margin: auto;
+        background-color: $aqua_darker;
+        border-radius: 5px;
+        padding: 40px 20px;
+
+
+        > h1 {
+            @extend .text_xlarge;
+            color: $white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        > .error {
+            text-align: center;
+            @extend .text_small;
+            color: $red_light;
+        }
+
+        > .toggle-register {
+            vertical-align: middle;
+            text-align: center;
+
+            > .button, > .text {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            > .button {
+                margin-right: 10px;
+            }
+
+            > .text {
+                color: $grey;
+                @include ts();
+                @extend .text_small;
+
+                &.active {
+                    color: $aqua;
+                }
+            }
+
+        }
+
+        > .input-group {
+            width: 100%;
+            text-align: center;
+            margin: 30px auto;
+
+            > input {
+                width: 90%;
+                margin: auto;
+                @extend .text_small;
+                padding: 10px 20px;
+                border-radius: 20px;
+                outline: none;
+                border: none;
+                color: $aqua_darker;
+                
+                &:focus {
+                    box-shadow: 0px 0px 8px $grey_light;
+                }
+
+                &::placeholder {
+                    color: $grey;
+                }
+            }
+        }
+
+        > .submit {
+            width: 100%;
+            text-align: center;
+
+            > button {
+                width: 70%;
+                margin: 10px;
+                @extend .text_small;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border: none;
+                outline: none;
+                border-radius: 20px;
+                background-color: $aqua_dark;
+                color: $white;
+                font-weight: 600;
+
+                &:hover {
+                    box-shadow: 0px 0px 5px $aqua; 
+                    cursor: pointer;
+                }
+            }
+        }
+
+        > .oauth {
+            width: 90%;
+            border-top: 1px solid $white;
+            margin: 20px auto;
+            padding-top: 20px;
+            text-align: center;
+
+            > button {
+                display: inline-block;
+                @extend .text_normal;
+                padding: 10px;
+                margin: 5px;
+                background-color: $white;
+                border: none;
+                outline: none;
+                border-radius: 50%;
+                
+
+                > div {
+                    width: 20px;
+                    height: 20px;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                }
+
+                &:hover {
+                    box-shadow: 0px 0px 5px $white; 
+                    cursor: pointer;
+                }
+
+                &.google {
+                    color: $red_google;
+                }
+
+                &.facebook {
+                    color: $blue_facebook;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        padding: 40px 10px 20px;
+    }
+}

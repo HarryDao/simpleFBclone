@@ -1,0 +1,68 @@
+@mixin box_sizing ($type) {
+    box-sizing: $type;
+    -moz-box-sizing: $type;
+    -webkit-box-sizing: $type;
+}
+
+@mixin transform($content) {
+    -webkit-transform: $content;
+    -o-transform: $content;
+    -ms-transform: $content;
+    transform: $content;   
+}
+
+@mixin transformOrigin($x, $y) {
+    transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+}
+
+@mixin ts($time:0.3s, $ease: ease-in-out) {
+    transition: $time $ease;
+    -moz-transition: $time $ease;
+    -webkit-transition: $time $ease;
+}
+
+@mixin ts_with_type($type, $time:0.3s, $ease: ease-in-out) {
+    transition: $type $time $ease;
+    -moz-transition: $type $time $ease;
+    -webkit-transition: $type $time $ease;
+}
+
+@mixin slide_down(
+    $time: 0.3s, 
+    $ease: ease-in-out,
+    $origin: top
+) {
+
+    @include transform(scaleY(0));
+
+    -webkit-transition: -webkit-transform $time $ease;
+    -o-transition: -o-transform $time $ease;
+    -ms-transition: -ms-transform $time $ease;
+    transition: transform $time $ease;
+}
+
+@mixin slide_down_show() {
+    -webkit-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+
+$mobile_size: 480px;
+$tablet_size: 800px;
+
+@mixin tablet {
+    @media (max-width: #{$tablet_size}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile_size}) {
+        @content;
+    }
+}

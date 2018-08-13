@@ -1,0 +1,65 @@
+@import './bases/colors';
+@import './bases/mixins';
+@import './bases/typography';
+@import './bases/components';
+
+body {
+    background-color: $black_light;
+    @extend .border_box;
+    * {
+        @extend .border_box;
+    }
+
+    > #root {
+        width: 100%;
+        height: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        > .app {
+            width: 100%;
+            height: 100%;
+
+            @import 'Header';
+            @import 'Messages';
+
+            > main {
+                min-height: 700px;
+
+                > .padding {
+                    @extend .title_large;
+                    margin: 30px;  
+                }
+
+                > .initializing { 
+                    height: 100%;
+                    width: 100%;    
+                    position: relative;
+                }
+
+                @import 'Auth';
+                @import 'Main/index';
+            }
+
+
+            @import 'Footer';
+        }
+    }
+
+    @include tablet {
+
+        > #root {
+            padding-right: 5px;
+            padding-left: 5px;
+
+            > .app {
+
+                > main {
+                    > .padding {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

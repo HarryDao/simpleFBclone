@@ -1,0 +1,129 @@
+.post-form {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+
+    > form {
+        display: flex;
+        background-color: $white;
+        border-radius: 5px;
+
+        > .input {
+            width: 85%;
+            position: relative;
+
+            > textarea {
+                width: 100%;
+                @extend .text_small_extend;
+                @include ts();
+                padding: 10px;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                background-color: transparent;
+                color: $aqua_darker;
+            }
+
+            > .suggestions {
+                position: absolute;
+                width: 150%;
+                z-index: 11;
+                overflow-x: hidden;
+
+                > .inner {
+                    display: inline-block;
+                    background-color: $aqua_darker;
+                    padding: 5px;
+                    border-radius: 0 10px 10px 10px;
+
+                    > p {
+                        > i {
+                            margin-right: 2px;
+                        }
+
+                        color: $white;
+                        @extend .text_small;
+                        @include ts(0.1s);
+                        margin: 3px;
+                        padding: 5px;
+                        border-radius: 3px;
+
+                        &.active {
+                            cursor: pointer;
+                            background-color: $white;
+                            color: $aqua_darker;
+                            
+                        }
+                    }
+                }
+                &.left {
+                    @include transform(rotate(180deg));
+                    @include transformOrigin(0%, 50%);
+                    transition: transform 0s;
+                    
+
+                    > .inner {
+                        border-radius: 10px 0px 10px 10px;
+                        @include transform(rotate(180deg));
+                        @include transformOrigin(50%, 50%);
+                    }
+                }
+            }
+        }
+        > button {
+            width: 15%;
+            @extend .text_normal;
+            @include ts(0.15s);
+            outline: none;
+            border: none;
+            border-left: 1px solid $grey_light;
+            border-radius: 0px 5px 5px 0;
+            background-color: $aqua_dark;
+            color: white;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $aqua_darker;
+            }
+        }
+    }
+
+    > .preview {
+        padding: 10px;
+
+        > .post-item {
+            @extend .post-item-styles;
+            margin-top: 0;
+            box-shadow: 0 0 10px $aqua;
+        }
+    }
+
+    @include tablet {
+        > form {
+            display: block;
+            background-color: transparent;
+            margin-bottom: 0;
+    
+            > .input {
+                width: 100%;
+                background-color: white;
+                border-radius: 5px 5px 0 0;
+                margin-bottom: 0;
+    
+                > textarea {
+                    min-height: 70px;
+                    @include text_small_extend_mixin();
+                }
+            }
+    
+            > button {
+                width: 100%;
+                margin-top: 0;
+                border-left: none;
+                @include text_small_mixin();
+                padding: 15px;
+                border-radius: 0 0 5px 5px;
+            }
+        }
+    }
+}
