@@ -2,6 +2,10 @@
 
 A web application replicating some of Facebook’s basic functions: making friends and posting
 
+### Demo
+
+https://simplefbclone.herokuapp.com 
+
 ## Built With
 
 * front-end web app: __ReactJS / Redux, SASS__
