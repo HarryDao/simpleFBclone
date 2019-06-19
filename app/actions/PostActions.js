@@ -41,16 +41,15 @@ export const fetchPosts = (cb) => async dispatch => {
     
                     posts[uid] = userPosts;
     
-                    if (Object.keys(posts).length === uids.length) {
-                        dispatch({
-                            type: FETCH_POSTS_SUCCESS,
-                            payload: posts
-                        });
-    
-                        if (cb && typeof cb === 'function') {
-                            return cb();
-                        }
+                    dispatch({
+                        type: FETCH_POSTS_SUCCESS,
+                        payload: posts
+                    });
+
+                    if (cb && typeof cb === 'function') {
+                        return cb();
                     }
+                    
                 }, () => {
                     if (!Firebase.auth().currentUser) {
                         unsubscribe();
