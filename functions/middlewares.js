@@ -23,7 +23,7 @@ const onAuthenticatedRequest = (requestHandler) => {
 }
 
 const onExpressRequest = (app, path, handler) => {
-    app.use(path, (req, res) => {
+    app.use(`/api${path}`, (req, res) => {
         return applyMiddlewares(req, res, handler);
     });
 }

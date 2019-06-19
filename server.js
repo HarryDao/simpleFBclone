@@ -12,6 +12,12 @@ app.use(BodyParser.json({ type: '*/*' }));
 app.use(Morgan('dev'));
 
 app.use(Express.static(Path.join(__dirname, './dist')));
+
+// For Heroku setup to combine front-end and back-end
+// const routes = require('./functions/express-routes');
+// routes(app);
+
+
 app.get('*', (req, res) => {
     res.sendFile(Path.join(__dirname, './dist/index.html'));
 });
